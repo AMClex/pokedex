@@ -1,0 +1,12 @@
+#hidden {
+    display: none;
+    text-transform: capitalize;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    text-align: right;
+}
