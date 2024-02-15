@@ -1,4 +1,8 @@
 function infoPokemon() {
+  let affichage = document.getElementById('down-element');
+
+  affichage.style.display = 'block';
+
   const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'
   let pokemonUrl = document.getElementById('userInput').value.trim();
   let url = baseUrl + pokemonUrl;
@@ -13,6 +17,7 @@ function infoPokemon() {
       return response.json();
     })
     .then(data => {
+      document.getElementById('statsTitle').innerText = "Statistiques"
       document.getElementById('name').innerText = "Nom : " + data.name;
       document.getElementById('type').innerText = "Type : " + data.types.map(type => type.type.name).join(' / ');
       document.getElementById('titrePokedex').innerText = data.name + ' - ' + 'n°' + data.id;
@@ -24,7 +29,17 @@ function infoPokemon() {
       document.getElementById('specialAttack').innerText = "Attaque spéciale : " + data.stats[3].base_stat;
       document.getElementById('specialDefense').innerText = "Défense spéciale : " + data.stats[4].base_stat;
       document.getElementById('speed').innerText = "Vitesse : " + data.stats[5].base_stat;
-      document.getElementById('image').src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + data.id + '.png';
+
+      if(data.id <= 9) {
+        document.getElementById('image').src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + "00" + data.id + '.png';
+      }
+      else if(data.id > 10 && data.id < 100) {
+        document.getElementById('image').src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + "0" + data.id + '.png';
+      }
+
+      else {
+        document.getElementById('image').src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + + data.id + '.png';
+      }
       
       let talentCount = data.abilities.length;
       let dropdown = document.getElementById('talent');
@@ -75,20 +90,19 @@ function infoPokemon() {
           return response.json();
         })
         .then(data => {
-          if(data.chain.evolves_to.length < 1) {
+          if (data.chain.evolves_to.length < 1) {
             document.getElementById('evolveFrom').innerText = "Pré-évolution : Aucune";
             document.getElementById('evolveInto').innerText = "Évolution : Aucune";
-          }
-          else {
-            if (document.getElementById('hidden').innerText === data.chain.species.name) {
+          } else {
+            let hiddenUi = document.getElementById('name').innerText;
+            console.log(hiddenUi);
+            if (hiddenUi === data.chain.species.name) {
               document.getElementById('evolveFrom').innerText = "Pré-évolution : Aucune";
               document.getElementById('evolveInto').innerText = "Évolution : " + data.chain.evolves_to[0].species.name;
-            }
-            else if (document.getElementById('hidden').innerText === data.chain.evolves_to[0].species.name) {
+            } else if (hiddenUi === data.chain.evolves_to[0].species.name) {
               document.getElementById('evolveFrom').innerText = "Pré-évolution : " + data.chain.species.name;
               document.getElementById('evolveInto').innerText = "Évolution : " + data.chain.evolves_to[0].evolves_to[0].species.name;
-            }
-            else {
+            } else {
               document.getElementById('evolveFrom').innerText = "Pré-évolution : " + data.chain.evolves_to[0].species.name;
               document.getElementById('evolveInto').innerText = "Évolution : Aucune";
             }

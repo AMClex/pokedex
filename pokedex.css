@@ -1,12 +1,88 @@
-#hidden {
-    display: none;
-    text-transform: capitalize;
+body {
+    background-color: #F5F5F5;
+}
+
+#down-element {
+    display:none
+}
+
+#pokemon-info {
+    text-align: center;
+}
+
+#text {
+    background-color: darkgrey;
 }
 
 h1 {
     text-align: center;
+    text-transform: capitalize;
+    padding: 25px;
 }
 
-button {
-    text-align: right;
+#button {
+    padding-bottom: 2%;
+}
+
+div {
+    text-transform: capitalize;
+}
+
+#stats {
+    float: right;
+    border : 20px;
+    border: 2px solid black;
+    border-radius: 10%;
+    margin-bottom: 5px;
+    background-color: darkgrey;
+    margin-right: 25%
+}
+
+#stats p {
+    margin: 8px 0;
+}
+
+#stats h2 {
+    margin-top: 4px;
+}
+
+.side-strip {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    width: 15%;
+    background-color: #87CEEB;
+}
+
+.left {
+    left: 0;
+    border-right: 2px solid black;
+}
+
+.right {
+    right: 0;
+    border-left: 2px solid black;
+}
+
+
+#image {
+    width: 27%;
+    background-color: rgb(231, 231, 231);
+    border-radius: 50%;
+    border: 5px dashed rgb(54, 54, 54);
+    float: left;
+    margin-right: 10px;
+    margin-left: 17.5%;
+    display: flex;
+    flex-direction: column;
+    order: 1;
+    margin-top: -20px;
+    margin-bottom: -20px;
+}
+
+
+
+#name {
+    display: none;
 }
