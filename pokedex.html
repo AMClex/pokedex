@@ -2,7 +2,6 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokédex</title>
     <link rel="stylesheet" href="pokedex.css">
 </head>
@@ -12,44 +11,46 @@
 <!--   <audio id="background-music" autoplay loop>
         <source src="./pokemon_center.mp3" type="audio/mp3">
     </audio> 
---> 
-
-    <div class="side-strip left"></div>
-    <div class="side-strip right"></div>
+-->
     <div id="pokemon-info">
         <div id="top-element">
             <h1 id="titrePokedex">Pokédex</h1>
 
-            <div id="button" name="button">
-            <input type="text" id="userInput" placeholder="Entrez le nom d'un Pokémon">
-            <button onclick="infoPokemon()">Rechercher</button>
+            <div id="pokemon-form" name="pokemonForm">
+                <input type="text" id="userInput" placeholder="Entrez le nom d'un Pokémon">
+                <button onclick="onPokemonSearch()">Rechercher</button>
             </div>
 
         </div>
         <div id="down-element">
-            <img id=image src='' alt="Image du Pokemon"/>
+            <div id="image-container">
+                <img id=image src='' alt="Image du Pokemon"/>
+            </div>
             <div id="text">
-                <div id="name"></div>
-                <div id="type"></div>
-                <div id="taille"></div>
-                <div id="categorie"></div>
-                <div id="poids"></div>
-                <select id="talent"></select>
-                <div id="sexe"></div> 
-                <div id="stats"></div>
-                <h2 id="statsTitle"></h2>
+                <div id="info">
+                    <div id="type"></div>
+                    <div id="taille"></div>
+                    <div id="categorie"></div>
+                    <div id="poids"></div>
+                    <select id="talent"></select>
+                    <div id="sexe"></div> 
+                </div>
+                <div id="stats">
+                    <h2 id="statsTitle"></h2>
                     <p id="hp"></p>
                     <p id="attack"></p>
                     <p id="defense"></p>
                     <p id="specialAttack"></p>
                     <p id="specialDefense"></p>
                     <p id="speed"></p>
-                <div id="evolutions">
-                    <p id="evolveFrom"></p>
-                    <p id="evolveInto"></p>
+                    <div id="evolutions">
+                        <p id="evolveFrom"></p>
+                        <p id="evolveInto"></p>
+                    </div>
                 </div>
             </div>
         </div>
+        <div id="error-element"></div>
     </div>
     <script src="pokedex.js"></script>
 </body>

@@ -1,41 +1,93 @@
-body {
-    background-color: #F5F5F5;
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
-#down-element {
-    display:none
-}
-
-#pokemon-info {
-    text-align: center;
-}
-
-#text {
-    background-color: darkgrey;
-}
-
-h1 {
-    text-align: center;
-    text-transform: capitalize;
-    padding: 25px;
-}
-
-#button {
-    padding-bottom: 2%;
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #87CEEB;
+    padding: 0;
+    margin: 0;
 }
 
 div {
     text-transform: capitalize;
 }
 
-#stats {
-    float: right;
-    border : 20px;
-    border: 2px solid black;
-    border-radius: 10%;
-    margin-bottom: 5px;
+#pokemon-info {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    background-color: #F5F5F5;
+    text-align: center;
+    border-right: 3px solid black;
+    border-left: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (min-width: 480px) {
+        width: 90%;
+        max-width: 900px;
+    }
+}
+
+#down-element, #error-element {
+    display:none
+}
+
+#error-element {
+    color: #ff5151;
+}
+
+#top-element {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    text-transform: capitalize;
+    padding: 24px 0;
+}
+
+#pokemon-form {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+#down-element {
     background-color: darkgrey;
-    margin-right: 25%
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 12px;
+
+    @media (min-width: 480px) {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+#text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#stats {
+    border: 2px solid black;
+    border-radius: 50px;
+    background-color: darkgrey;
 }
 
 #stats p {
@@ -46,43 +98,28 @@ div {
     margin-top: 4px;
 }
 
-.side-strip {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    display: flex;
-    width: 15%;
-    background-color: #87CEEB;
-}
-
-.left {
-    left: 0;
-    border-right: 2px solid black;
-}
-
-.right {
-    right: 0;
-    border-left: 2px solid black;
-}
-
-
-#image {
-    width: 27%;
-    background-color: rgb(231, 231, 231);
+#image-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    background: linear-gradient(to bottom, red 50%,white 50%);
     border-radius: 50%;
-    border: 5px dashed rgb(54, 54, 54);
-    float: left;
-    margin-right: 10px;
-    margin-left: 17.5%;
+    border: 3px solid black;
     display: flex;
-    flex-direction: column;
-    order: 1;
-    margin-top: -20px;
-    margin-bottom: -20px;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: 480px) {
+        width: 300px;
+        height: 300px;
+    }
 }
 
 
-
-#name {
-    display: none;
+#image{
+    background-color: lightgrey;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    border-radius: 50%;
 }
